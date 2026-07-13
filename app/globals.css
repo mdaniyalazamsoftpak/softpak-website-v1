@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange:       #F05A24;
+  --color-brand-orangeAlt:    #F05D28;
+  --color-brand-dark:         #191A23;
+  --color-brand-darker:       #0F0F0F;
+  --color-brand-peach:        #FFEEE7;
+  --color-brand-peachLight:   #FFF3EF;
+  --color-brand-cardGray:     #F2F2F2;
+  --color-brand-cardGrayAlt:  #F9F9F9;
+  --color-brand-bodyText:     #67646A;
+  --color-brand-muted:        #DADADA;
+
+  --font-sans:    var(--font-manrope), system-ui, sans-serif;
+  --font-display: var(--font-manrope), system-ui, sans-serif;
+
+  --text-hero:                 64px;
+  --text-hero--line-height:    1.05;
+  --text-hero--letter-spacing: -0.02em;
+
+  --text-h2:                   48px;
+  --text-h2--line-height:      1.15;
+  --text-h2--letter-spacing:   -0.01em;
+
+  --text-h3:                   24px;
+  --text-h3--line-height:      1.3;
+
+  --text-stat:                 72px;
+  --text-stat--line-height:    1;
+  --text-stat--letter-spacing: -0.02em;
+}
+
+@utility max-w-canvas  { max-width: 1440px; }
+@utility max-w-content { max-width: 1296px; }
+
+:root { --font-manrope: "Manrope", system-ui, sans-serif; }
+
+html, body {
+  background: #ffffff;
+  color: #191A23;
+  font-family: var(--font-manrope);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 1440px;
+}
