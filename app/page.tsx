@@ -13,6 +13,7 @@ import MeetTheTeam from "@/components/home/MeetTheTeam";
 import Testimonials from "@/components/home/Testimonials";
 import ContactUs from "@/components/home/ContactUs";
 import PulseVideo from "@/components/home/PulseVideo";
+import PulseVideoSection from "@/components/home/PulseVideoSection";
 
 export default function HomePage() {
   return (

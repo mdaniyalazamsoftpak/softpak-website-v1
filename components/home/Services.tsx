@@ -210,7 +210,7 @@ export default function Services() {
         <div className="w-[1200px] mx-auto mt-[80px] flex flex-col gap-[16px]">
           <div className="h-[61.59px] pt-[10.5px]">
             <h2
-              className={`${albertSans.className} mx-auto w-[271px] h-[48px] font-medium text-[48px] leading-[48px] tracking-[-1.1px] text-center text-[#0F0F0F]`}
+              className={`${albertSans.className} mx-auto w-[275px] h-[48px] font-medium text-[48px] leading-[48px] tracking-[-1.1px] text-center text-[#0F0F0F]`}
             >
               Our Services
             </h2>

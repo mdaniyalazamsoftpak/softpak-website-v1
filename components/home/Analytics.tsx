@@ -204,7 +204,7 @@ export default function Analytics() {
         </h2>
         <Link
           href="#contact"
-          className={`${albertSans.className} absolute w-[220px] h-[56px] left-[100px] top-[323px] bg-[#191A23] rounded-[14px] flex justify-center items-center px-[35px] py-[20px] gap-[10px] font-normal text-[20px] leading-[28px] text-center text-white`}
+          className={`${albertSans.className} absolute w-[221px] h-[56px] left-[100px] top-[323px] bg-[#191A23] rounded-[14px] flex justify-center items-center px-[35px] py-[20px] gap-[10px] font-normal text-[20px] leading-[28px] text-center text-white`}
         >
           Connect with us
         </Link>

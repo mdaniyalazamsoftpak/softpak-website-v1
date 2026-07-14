@@ -120,7 +120,7 @@ const tabs = [
     key: "enterprise",
     label: "Enterprise Wealth Management Firms",
     image: "/Who We Serve/Who We Serve/enterprise.gif",
-    tabWidth: "w-[237px]",
+    tabWidth: "w-[238px]",
   },
   {
     key: "ria",
@@ -188,7 +188,7 @@ export default function WhoWeServe() {
     <section className="absolute w-full h-[1192px] top-[3541px] bg-[#FFEEE7] left-1/2 -translate-x-1/2">
       <div className="relative mx-auto w-[1440px] h-[1192px]">
         {/* Heading */}
-        <div className="absolute w-[302px] h-[48px] top-[127px] left-1/2 -translate-x-1/2">
+        <div className="absolute w-[303px] h-[48px] top-[127px] left-1/2 -translate-x-1/2">
           <h2
             className={`${albertSans.className} w-[302px] h-[48px] font-medium text-[48px] leading-[48px] tracking-[-1.1px] text-center text-[#0F0F0F]`}
           >

@@ -12,8 +12,8 @@ const posts = [
       "How do you create compelling presentations that wow your colleagues and impress your managers?",
     author: "Naaz Scheik",
     date: "20 Feb 2026",
-    image: "/images/blog-0.png",
-    avatar: "/images/image-9.png",
+    image: "/images/image-9.png",
+    avatar: "/images/avatar-2.png",
   },
   {
     category: "Marketing",
@@ -22,8 +22,8 @@ const posts = [
       "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get started.",
     author: "Erica Landry",
     date: "29 Jan 2026",
-    image: "/images/blog-1.png",
-    avatar: "/images/image-10.png",
+    image: "/images/image-10.png",
+    avatar: "/images/avatar-1.png",
   },
   {
     category: "Investments",
@@ -32,8 +32,8 @@ const posts = [
       "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
     author: "Christopher Stewart",
     date: "10 Jan 2026",
-    image: "/images/blog-2.png",
-    avatar: "/images/image-11.png",
+    image: "/images/image-11.png",
+    avatar: "/images/avatar-0.png",
   },
 ];
 
@@ -46,45 +46,48 @@ function BlogCard({ post }: { post: (typeof posts)[number] }) {
           "0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)",
       }}
     >
-      <div className="relative h-[220px] overflow-hidden">
+      <div className="relative w-[338.67px] h-[220px]">
         <Image
           src={post.image}
           alt={post.title}
           fill
-          className="object-cover"
-          sizes="420px"
+          className="object-cover rounded-[12px]"
         />
       </div>
-      <div className="p-6 flex flex-col flex-1">
-        <div className="text-[12px] font-semibold uppercase tracking-wide text-brand-orange mb-3">
-          {post.category}
-        </div>
-        <div className="flex items-start justify-between gap-4">
-          <h3 className="text-[22px] font-bold text-brand-dark leading-tight">
-            {post.title}
-          </h3>
-          <Link
-            href="#"
-            aria-label="Read article"
-            className="shrink-0 w-9 h-9 rounded-full border border-neutral-200 flex items-center justify-center text-brand-orange hover:bg-brand-peachLight transition-colors"
+      <div className="flex flex-col flex-1 w-[338.67px] h-[252px] justify-between opacity-100">
+        <div className="w-[338.67px] h-[148px] opacity-100 flex flex-col gap-[12px]">
+          <div
+            className={`${albertSans.className} w-[338.67px] h-[20px] font-semibold text-[14px] leading-[20px] text-[#F05A24] flex-none self-stretch flex-grow-0`}
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <path d="M7 17L17 7M17 7H8M17 7v9" />
-            </svg>
-          </Link>
+            {post.category}
+          </div>
+          <div className="w-[338.67px] h-[116px] opacity-100 flex flex-col gap-[12px]">
+            <div className="w-[338.67px] h-[32px] opacity-100 flex gap-[16px]">
+              <h3
+                className={`${albertSans.className} w-[298.67px] h-[32px] font-semibold text-[24px] leading-[32px] text-[#101828] flex-none flex-grow`}
+              >
+                {post.title}
+              </h3>
+              <div className="w-[24px] h-[28px] opacity-100 pt-[4px]">
+                <div className="w-[24px] h-[24px] opacity-100 flex items-center justify-center">
+                  <Image
+                    src="/icons/arrow-icon.svg"
+                    alt="icon"
+                    width={10}
+                    height={10}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p
+            className={`${albertSans.className} w-[338.67px] h-[72px] font-normal text-[16px] leading-[24px] text-[#6A6A6A] flex-none self-stretch flex-grow-0`}
+          >
+            {post.excerpt}
+          </p>
         </div>
-        <p className="mt-4 text-[14px] text-brand-bodyText leading-relaxed flex-1">
-          {post.excerpt}
-        </p>
-        <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center gap-3">
-          <div className="relative w-8 h-8 rounded-full overflow-hidden bg-neutral-200">
+        <div className="flex flex-row items-center p-0 gap-[12px] w-[136px] h-[40px] flex-none flex-grow-0">
+          <div className="relative w-[40px] h-[40px] opacity-100 rounded-[200px] overflow-hidden flex-none">
             <Image
               src={post.avatar}
               alt={post.author}
@@ -93,11 +96,17 @@ function BlogCard({ post }: { post: (typeof posts)[number] }) {
               sizes="32px"
             />
           </div>
-          <div>
-            <div className="text-[13px] font-medium text-brand-dark">
+          <div className="w-[84px] h-[40px] opacity-100">
+            <div
+              className={`${albertSans.className} w-[134px] h-[20px] font-medium text-[14px] leading-[20px] text-[#101828] flex-none flex-grow-0`}
+            >
               {post.author}
             </div>
-            <div className="text-[12px] text-brand-bodyText">{post.date}</div>
+            <div
+              className={`${albertSans.className} w-[84px] h-[20px] font-normal text-[14px] leading-[20px] text-[#667085] flex-none flex-grow-0`}
+            >
+              {post.date}
+            </div>
           </div>
         </div>
       </div>
@@ -109,7 +118,7 @@ export default function ExpertPerspective() {
   return (
     <section className="absolute w-full h-[1064px] top-[5151px] bg-[#F2F2F2] left-1/2 -translate-x-1/2">
       <div className="relative mx-auto w-[1440px] h-[1064px]">
-        <div className="absolute w-[493px] h-[48px] top-[188px] left-[473px]">
+        <div className="absolute w-[494px] h-[48px] top-[188px] left-[473px]">
           <h2
             className={`${albertSans.className} font-medium text-[48px] leading-[48px] tracking-[-1.1px] text-center text-[#0F0F0F]`}
           >
