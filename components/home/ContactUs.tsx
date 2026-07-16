@@ -1,6 +1,12 @@
 "use client";
 
+import React from "react";
 import { useState } from "react";
+import { Albert_Sans } from "next/font/google";
+import Link from "next/link";
+import Image from "next/image";
+
+const albertSans = Albert_Sans({ subsets: ["latin"], weight: ["400", "500"] });
 
 /**
  * Dot world map — a stylized approximation of the SVG's stippled world map.
@@ -10,60 +16,13 @@ import { useState } from "react";
  */
 function WorldMapBg() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <svg
-        viewBox="0 0 1200 500"
-        className="w-full max-w-[1200px] opacity-60"
-        aria-hidden
-      >
-        <defs>
-          <pattern
-            id="dots"
-            x="0"
-            y="0"
-            width="12"
-            height="12"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle cx="4" cy="4" r="1.6" fill="#DADADA" />
-          </pattern>
-          <mask id="continents">
-            {/* very rough continent silhouettes */}
-            <rect width="1200" height="500" fill="black" />
-            {/* North America */}
-            <ellipse cx="230" cy="200" rx="150" ry="90" fill="white" />
-            <ellipse cx="260" cy="290" rx="60" ry="60" fill="white" />
-            {/* South America */}
-            <ellipse cx="330" cy="380" rx="55" ry="90" fill="white" />
-            {/* Europe */}
-            <ellipse cx="600" cy="180" rx="80" ry="55" fill="white" />
-            {/* Africa */}
-            <ellipse cx="640" cy="310" rx="90" ry="110" fill="white" />
-            {/* Asia */}
-            <ellipse cx="850" cy="200" rx="180" ry="90" fill="white" />
-            <ellipse cx="920" cy="280" rx="70" ry="45" fill="white" />
-            {/* Australia */}
-            <ellipse cx="1000" cy="380" rx="70" ry="40" fill="white" />
-          </mask>
-        </defs>
-        <rect
-          width="1200"
-          height="500"
-          fill="url(#dots)"
-          mask="url(#continents)"
-        />
-        {/* Orange location pins */}
-        {[
-          [230, 200],
-          [330, 380],
-          [600, 180],
-          [640, 310],
-          [850, 200],
-          [1000, 380],
-        ].map(([cx, cy], i) => (
-          <circle key={i} cx={cx} cy={cy} r="5" fill="#F05A24" />
-        ))}
-      </svg>
+    <div className="absolute w-[1063.55px] h-[607.17px] top-[234.76px] left-[calc(50%-1063.55px/2)] opacity-100">
+      <Image
+        src={"/images/Vector.svg"}
+        alt={"World Map"}
+        fill
+        className="object-coverS"
+      />
     </div>
   );
 }
@@ -83,28 +42,43 @@ function Field({
   value: string;
   onChange: (v: string) => void;
 }) {
-  const hasLabel = Boolean(label);
+  const [focused, setFocused] = React.useState(false);
+  const floated = focused || value.length > 0;
+
   return (
     <label className="block relative">
-      {hasLabel && (
-        <span className="absolute -top-2 left-4 bg-white px-2 text-[12px] text-brand-orange font-medium">
-          {label}
-        </span>
-      )}
+      {/* Floating label */}
+      <span
+        className={`${albertSans.className} absolute left-[20px] bg-[#F9F9F9] px-[4px] pointer-events-none transition-all duration-200 text-[#6B6B6B] z-10
+          ${
+            floated
+              ? "top-[-6px] text-[10px] leading-[100%]"
+              : as === "textarea"
+                ? "top-[16px] text-[15px] leading-[24px]"
+                : "top-[20px] text-[15px] leading-[24px]"
+          }`}
+      >
+        {label || placeholder}
+      </span>
+
       {as === "textarea" ? (
         <textarea
-          placeholder={placeholder}
+          placeholder=""
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full rounded-2xl border border-neutral-200 px-5 py-4 text-[15px] text-brand-dark placeholder-brand-bodyText focus:border-brand-orange focus:outline-none min-h-[140px] resize-none bg-white"
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          className="w-[489px] h-[200px] bg-[#F9F9F9] border-2 border-[#A9A9A9] rounded-[20px] px-5 py-4 text-[15px] text-brand-dark focus:border-brand-orange focus:outline-none resize-none"
         />
       ) : (
         <input
           type={type}
-          placeholder={placeholder}
+          placeholder=""
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full rounded-2xl border border-neutral-200 px-5 py-4 text-[15px] text-brand-dark placeholder-brand-bodyText focus:border-brand-orange focus:outline-none bg-white"
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          className="w-[489px] h-[64px] bg-[#F9F9F9] border-2 border-[#A9A9A9] rounded-[20px] px-5 py-4 text-[15px] text-brand-dark focus:border-brand-orange focus:outline-none"
         />
       )}
     </label>
@@ -122,52 +96,60 @@ export default function ContactUs() {
       id="contact"
       className="absolute w-full h-[990px] top-[7710px] bg-[#F2F2F2] left-1/2 -translate-x-1/2"
     >
-      <WorldMapBg />
-
-      <div className="relative mx-auto max-w-canvas px-[72px]">
-        <div className="text-center mb-12">
-          <h2 className="text-h2 font-bold text-brand-dark">Contact Us</h2>
-          <p className="mt-3 text-[16px] text-brand-bodyText max-w-[560px] mx-auto">
-            Blessing welcomed ladyship she met humoured sir breeding her. Six
-            curiosity day assurance bed necessary.
-          </p>
-        </div>
-
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="max-w-[560px] mx-auto space-y-5"
+      <div className="w-[1440px] h-[990px]">
+        <WorldMapBg />
+        <h2
+          className={`${albertSans.className} absolute w-[239px] h-[48px] left-[calc(50%-239px/2-0.95px)] top-[57px] font-medium text-[48px] leading-[48px] text-center tracking-[-1.09922px] text-[#0F0F0F]`}
         >
-          <Field
-            label="Full name"
-            placeholder="Full name"
-            value={name}
-            onChange={setName}
-          />
-          <Field
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={setEmail}
-          />
-          <Field
-            placeholder="Company Name"
-            value={company}
-            onChange={setCompany}
-          />
-          <Field
-            placeholder="Short Message"
-            as="textarea"
-            value={message}
-            onChange={setMessage}
-          />
+          Contact Us
+        </h2>
+        <p
+          className={`${albertSans.className} absolute w-[672px] h-[50px] left-[calc(50%-672px/2-0.45px)] top-[121px] font-normal text-[18px] leading-[25px] text-center tracking-[-0.439453px] text-[#0F0F0F]/60`}
+        >
+          Blessing welcomed ladyship she met humoured sir breeding her. Six
+          curiosity day assurance bed necessary.
+        </p>
 
-          <button
-            type="submit"
-            className="w-full rounded-2xl bg-brand-dark py-4 text-white font-medium hover:bg-black transition-colors"
+        <div className="absolute w-[489px] h-[545px] top-[279px] left-[calc(50%-489px/2)] opacity-100">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex flex-col gap-[20px]"
           >
-            Connect with us
-          </button>
-        </form>
+            <Field
+              label="Full name"
+              placeholder="Full name"
+              value={name}
+              onChange={setName}
+            />
+            <Field
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={setEmail}
+            />
+            <Field
+              placeholder="Company Name"
+              value={company}
+              onChange={setCompany}
+            />
+            <Field
+              placeholder="Short Message"
+              as="textarea"
+              value={message}
+              onChange={setMessage}
+            />
+            <Link
+              href="#"
+              className="mt-[10px] flex flex-row justify-center items-center px-[35px] py-[20px] gap-[10px] w-[489px] h-[56px] bg-[#191A23] rounded-[14px]"
+            >
+              <span
+                className={`${albertSans.className} w-[150px] h-[28px] font-normal text-[20px] leading-[28px] text-center text-white flex-none flex-grow-0`}
+              >
+                Connect with us
+              </span>
+            </Link>
+          </form>
+        </div>
       </div>
     </section>
   );

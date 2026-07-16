@@ -6,35 +6,30 @@ const testimonials = [
     name: "Davide, London",
     role: "Fintech Consultant",
     faded: true,
-    avatar: "/images/avatar-0.png",
   },
   {
     quote: "Urebal platform is a game changer for our firm.",
     name: "Rachael, UK",
     role: "Fintech Consultant",
     faded: true,
-    avatar: "/images/avatar-0.png",
   },
   {
     quote: "Urebal platform is a game changer for our firm.",
     name: "Peter, Belgium",
     role: "CFO",
     faded: false,
-    avatar: "/images/avatar-1.png",
   },
   {
     quote: "Urebal platform is a game changer for our firm.",
     name: "Keri, USA",
     role: "Financial Advisor",
     faded: true,
-    avatar: "/images/avatar-2.png",
   },
   {
     quote: "Urebal platform is a game changer for our firm.",
     name: "Davide, London",
     role: "Fintech Consultant",
     faded: true,
-    avatar: "/images/avatar-0.png",
   },
 ];
 
