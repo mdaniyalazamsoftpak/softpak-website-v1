@@ -3,6 +3,7 @@ import Image from "next/image";
 import { albertSans } from "@/lib/fonts";
 import Solutions from "@/components/solutions/Solutions";
 import Resources from "@/components/resources/Resources";
+import Whoweserve from "@/components/Whoweserve/Whoweserve";
 
 const navLinkClass =
   "whitespace-nowrap font-normal leading-[32px] tracking-[0em] text-[16px] text-brand-dark hover:text-brand-orange transition-colors";
@@ -36,9 +37,14 @@ export default function Header() {
                 <Solutions />
               </div>
             </div>
-            <Link href="/who-we-serve" className={navLinkClass}>
-              Who we serve
-            </Link>
+            <div className="group relative">
+              <Link href="/who-we-serve" className={navLinkClass}>
+                Who we serve
+              </Link>
+              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 absolute top-full left-1/2 -translate-x-1/2 z-50">
+                <Whoweserve />
+              </div>
+            </div>
             <div className="group relative">
               <Link href="/resources" className={navLinkClass}>
                 Resources

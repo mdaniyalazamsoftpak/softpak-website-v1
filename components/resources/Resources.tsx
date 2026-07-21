@@ -22,9 +22,17 @@ type ResourceItem = {
 
 const columns: ResourceItem[][] = [
   [
-    { title: "Webinars", description: "Learn about your users", icon: VideoCameraIcon },
+    {
+      title: "Webinars",
+      description: "Learn about your users",
+      icon: VideoCameraIcon,
+    },
     { title: "Blogs", description: "Monitor your metrics", icon: PencilIcon },
-    { title: "Pricing", description: "Measure B2B account health", icon: CurrencyDollarIcon },
+    {
+      title: "Pricing",
+      description: "Measure B2B account health",
+      icon: CurrencyDollarIcon,
+    },
   ],
   [
     {
@@ -138,13 +146,6 @@ function FaqCard() {
           >
             FAQS
           </div>
-          <a
-            href="/resources"
-            className={`${albertSans.className} flex items-center gap-[5px] font-medium text-[14px] leading-[150%] text-brand-orange`}
-          >
-            See all
-            <Image src="/icons/arrow-icon.svg" alt="" width={16} height={16} aria-hidden />
-          </a>
         </div>
 
         <div className="flex flex-col gap-4 max-w-[567px] mt-4">
@@ -152,6 +153,20 @@ function FaqCard() {
             <FaqRow key={question} question={question} />
           ))}
         </div>
+
+        <a
+          href="/resources"
+          className={`${albertSans.className} mt-[43.95px] flex items-center gap-[5px] font-medium text-[14px] leading-[150%] text-brand-orange`}
+        >
+          See all
+          <Image
+            src="/icons/arrow-right.svg"
+            alt=""
+            width={16}
+            height={16}
+            aria-hidden
+          />
+        </a>
       </div>
     </div>
   );
