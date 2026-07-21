@@ -1,13 +1,11 @@
 import React from "react";
 import CardsOverVideo from "./CardsOverVideo";
-import { Albert_Sans } from "next/font/google";
-
-const albertSans = Albert_Sans({ subsets: ["latin"], weight: ["400", "500"] });
+import { albertSans } from "@/lib/fonts";
 
 export default function PulseVideoSection() {
   return (
-    <section className="absolute w-full h-[1369px] bg-[#000000] left-1/2 -translate-x-1/2 z-0">
-      <div className="relative mx-auto w-[1440px] h-[1369px]">
+    <section className="absolute w-full h-[902px] bg-[#000000] left-1/2 -translate-x-1/2 z-0">
+      <div className="relative mx-auto w-[1440px] h-[1902px]">
         <div className="absolute w-[1440px] h-[902px]">
           <video
             autoPlay

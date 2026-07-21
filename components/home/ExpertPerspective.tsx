@@ -1,8 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
-import { Albert_Sans } from "next/font/google";
-
-const albertSans = Albert_Sans({ subsets: ["latin"], weight: ["400", "500"] });
+import { albertSans } from "@/lib/fonts";
 
 const posts = [
   {
@@ -57,7 +54,7 @@ function BlogCard({ post }: { post: (typeof posts)[number] }) {
       <div className="flex flex-col flex-1 w-[338.67px] h-[252px] justify-between opacity-100">
         <div className="w-[338.67px] h-[148px] opacity-100 flex flex-col gap-[12px]">
           <div
-            className={`${albertSans.className} w-[338.67px] h-[20px] font-semibold text-[14px] leading-[20px] text-[#F05A24] flex-none self-stretch flex-grow-0`}
+            className={`${albertSans.className} w-[338.67px] h-[20px] font-semibold text-[14px] leading-[20px] text-brand-orange flex-none self-stretch flex-grow-0`}
           >
             {post.category}
           </div>
@@ -116,18 +113,18 @@ function BlogCard({ post }: { post: (typeof posts)[number] }) {
 
 export default function ExpertPerspective() {
   return (
-    <section className="absolute w-full h-[1064px] top-[5151px] bg-[#F2F2F2] left-1/2 -translate-x-1/2">
+    <section className="relative w-full h-[1064px] -mt-[37px] bg-brand-cardGray">
       <div className="relative mx-auto w-[1440px] h-[1064px]">
         <div className="absolute w-[494px] h-[48px] top-[188px] left-[473px]">
           <h2
-            className={`${albertSans.className} font-medium text-[48px] leading-[48px] tracking-[-1.1px] text-center text-[#0F0F0F]`}
+            className={`${albertSans.className} font-medium text-[48px] leading-[48px] tracking-[-1.1px] text-center text-brand-darker`}
           >
             Our Expert Perspective
           </h2>
         </div>
         <div className="absolute w-[567px] h-[50px] top-[252px] left-[449px]">
           <p
-            className={`${albertSans.className} font-normal text-[18px] leading-[25px] tracking-[-0.44px] text-center text-[#0F0F0F]/60`}
+            className={`${albertSans.className} font-normal text-[18px] leading-[25px] tracking-[-0.44px] text-center text-brand-darker/60`}
           >
             Our solutions speak volume. We have been privileged to serve a range
             of organizations and professionals in managing their portfolios.

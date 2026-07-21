@@ -2,8 +2,8 @@ import PulseVideoSection from "./PulseVideoSection";
 
 export default function PulseVideo() {
   return (
-    <section className="absolute w-full h-[1369px] top-[2172px] flex justify-center bg-[#000000] left-1/2 -translate-x-1/2">
-      <div className=" w-[1440px] h-[1369px] =">
+    <section className="sticky top-0 w-full h-[902px] mt-[91px] flex justify-center bg-[#000000]">
+      <div className=" w-[1440px] h-[902px]">
         <PulseVideoSection />
       </div>
     </section>

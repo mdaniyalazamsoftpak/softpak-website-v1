@@ -1,12 +1,7 @@
 import React from "react";
-import { Albert_Sans, Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-
-const albertSans = Albert_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
+import { albertSans } from "@/lib/fonts";
 
 interface CardProps {
   title: string;
@@ -32,7 +27,7 @@ export default function Card({
   zIndex,
 }: CardProps) {
   return (
-    <div className="sticky top-0 mb-[30px] w-[1239px] h-[582px] bg-[#F2F2F2] rounded-[24px] flex-none self-stretch flex-grow-0 shadow-[0px_4px_35px_rgba(0,0,0,0.25)]">
+    <div className="sticky top-0 mb-[30px] w-[1239px] h-[582px] bg-brand-cardGray rounded-[24px] flex-none self-stretch flex-grow-0 shadow-[0px_4px_35px_rgba(0,0,0,0.25)]">
       <div
         className="absolute w-[587px] h-[523px] top-[30px] left-[30px] flex flex-col gap-[263px]"
         style={{ zIndex }}
@@ -51,7 +46,7 @@ export default function Card({
         </div>
         <Link
           href="#"
-          className={`${albertSans.className} w-[175px] h-[68px] bg-[#F05A24] rounded-[14px] flex flex-row items-center justify-center px-[35px] py-[20px] gap-[10px] font-normal text-[20px] leading-[28px] text-center text-white`}
+          className={`${albertSans.className} w-[175px] h-[68px] bg-brand-orange rounded-[14px] flex flex-row items-center justify-center px-[35px] py-[20px] gap-[10px] font-normal text-[20px] leading-[28px] text-center text-white`}
         >
           {buttonLabel}
         </Link>
